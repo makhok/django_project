@@ -4,10 +4,11 @@ import os.path
 from django.shortcuts import render
 
 # Create your views here.
+from mainapp.models import Product, ProductCategory
 
 main_menu = [
-    {'href': 'index', 'name': 'домой'},
-    {'href': 'products', 'name': 'продукты'},
+    {'href': 'main', 'name': 'домой'},
+    {'href': 'products:index', 'name': 'продукты'},
     {'href': 'contact', 'name': 'контакты'},
 ]
 
@@ -36,3 +37,11 @@ def contact(request):
         'main_menu': main_menu,
     }
     return render(request, 'mainapp/contact.html', content)
+
+def main(request):
+    title = 'главная'
+    products = Product.objects.all()[:4]
+    content = {'title': title, 'products': products, 'main_menu': main_menu}
+    return render(request, 'mainapp/index.html', content)
+
+
