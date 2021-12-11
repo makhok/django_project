@@ -1,0 +1,50 @@
+[
+  {
+    "category": "Стулья",
+    "name": "Стул для кафе",
+    "image": "product-21.jpg",
+    "description": "Удобный стул для интерьера кафе",
+    "price": 1250.25,
+    "quantity": 128
+  },
+  {
+    "category": "Стулья",
+    "name": "Стул-лодочка",
+    "image": "product-4.jpg",
+    "description": "Удобный стул для интерьера кухни",
+    "price": 2361.36,
+    "quantity": 280
+  },
+  {
+    "category": "Стулья",
+    "name": "Мягкий стул",
+    "image": "product-2.jpg",
+    "description": "Удобный стул для интерьера офиса",
+    "price": 3800,
+    "quantity": 520
+  },
+  {
+    "category": "Диваны",
+    "name": "Диван для офиса",
+    "image": "product-3-sm",
+    "description": "Удобный диван для приемной",
+    "price": 15123.40,
+    "quantity": 1625
+  },
+  {
+    "category": "Лампы",
+    "name": "Лампа для офиса",
+    "image": "product-31",
+    "description": "Настольная лампа для офиса",
+    "price": 523.20,
+    "quantity": 3250
+  },
+  {
+    "category": "Лампы",
+    "name": "Лампа для офиса",
+    "image": "product-41",
+    "description": "Настенная лампа для офиса",
+    "price": 1020.50,
+    "quantity": 2800
+  }
+]
