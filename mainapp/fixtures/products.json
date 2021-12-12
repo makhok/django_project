@@ -1,0 +1,26 @@
+[
+  {
+    "category": "Стулья",
+    "name": "Стул для кафе",
+    "image": "product-21.jpg",
+    "description": "Удобный стул для интерьера кафе",
+    "price": 0,
+    "quantity": 0
+  },
+  {
+    "category": "Стулья",
+    "name": "Стул-лодочка",
+    "image": "product-4.jpg",
+    "description": "Удобный стул для интерьера кухни",
+    "price": 0,
+    "quantity": 0
+  },
+  {
+    "category": "Стулья",
+    "name": "Мягкий стул",
+    "image": "product-2.jpg",
+    "description": "Удобный стул для интерьера офиса",
+    "price": 0,
+    "quantity": 0
+  }
+]
