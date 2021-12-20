@@ -1,12 +1,15 @@
 import json
 import os.path
+import random
 
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
-# Create your views here.
 from basketapp.models import Basket
 from mainapp.models import Product, ProductCategory
+
+# Create your views here.
+
 
 menu = [
     {'href': 'main', 'name': 'домой'},
@@ -15,6 +18,23 @@ menu = [
 ]
 
 module_dir = os.path.dirname(__file__)
+
+
+def get_basket(user):
+    if user.is_authenticated:
+        return Basket.objects.filter(user=user)
+    else:
+        return []
+
+
+def get_hot_product():
+    products = Product.objects.all()
+    return random.sample(list(products), 1)[0]
+
+
+def get_same_products(hot_product):
+    same_products = Product.objects.filter(category=hot_product.category).exclude(pk=hot_product.pk)[:3]
+    return same_products
 
 
 def index(request):
@@ -26,12 +46,10 @@ def index(request):
 
 
 def products(request, pk=None):
-    print(pk)
-
     title = 'продукты'
     links_menu = ProductCategory.objects.all()
+    basket = get_basket(request.user)
 
-    basket = []
     if request.user.is_authenticated:
         basket = Basket.objects.filter(user=request.user)
 
@@ -50,17 +68,23 @@ def products(request, pk=None):
             'category': category,
             'menu': menu,
             'basket': basket,
+
         }
 
         return render(request, 'mainapp/products_list.html', content)
 
-    same_products = Product.objects.all()[:5]
+    hot_product = get_hot_product()
+    same_products = get_same_products(hot_product)
+
 
     content = {
         'title': title,
         'links_menu': links_menu,
+        'hot_product': hot_product,
         'same_products': same_products,
-        'menu': menu
+        'basket': basket,
+        'menu': menu,
+
     }
 
     return render(request, 'mainapp/products.html', content)
@@ -79,5 +103,21 @@ def main(request):
     products = Product.objects.all()[:3]
     content = {'title': title, 'products': products, 'menu': menu}
     return render(request, 'mainapp/index.html', content)
+
+
+def product(request, pk):
+    title = 'продукты'
+
+    content = {
+        'title': title,
+        'links_menu': ProductCategory.objects.all(),
+        'product': get_object_or_404(Product, pk=pk),
+        'basket': get_basket(request.user),
+    }
+
+    return render(request, 'mainapp/product.html', content)
+
+
+
 
 
