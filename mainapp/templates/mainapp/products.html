@@ -14,14 +14,9 @@
 		{% block content %}
 		<div class="details">
 			<div class="links clearfix">
-				<ul class="links-menu">
-					<li><a href="#" class="active">все</a></li>
-					<li><a href="#">дом</a></li>
-					<li><a href="#">офис</a></li>
-					<li><a href="#">модерн</a></li>
-					<li><a href="#">классика</a></li>
-				</ul>
+				{% include 'include/inc_categories_menu.html' %}
 			</div>
+
 
 			<div class="details-products">
 				<div class="details-slider">
@@ -73,7 +68,7 @@
 				<div class="related-products clearfix">
 					{% for product in products %}
 					<div class="block">
-						<a href="#"><img src="/static/img/{{ product.image}}" alt="">
+						<a href="#"><img src="/static/img/{{ product.image }}" alt="">
 							<div class="text">
 								<img src="/static/img/icon-hover.png" alt="img">
 								<h4>{{ product.name }}</h4>
