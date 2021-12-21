@@ -90,7 +90,7 @@ html, body {
 	left: 1210px;
 }
 
-.clearfix:afer {
+.clearfix:after {
 	content: "";
 	display: block;
 	clear: both;

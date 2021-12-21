@@ -40,7 +40,7 @@ def contact(request):
 
 def main(request):
     title = 'главная'
-    products = Product.objects.all()[:4]
+    products = Product.objects.all()[:3]
     content = {'title': title, 'products': products, 'main_menu': main_menu}
     return render(request, 'mainapp/index.html', content)
 
