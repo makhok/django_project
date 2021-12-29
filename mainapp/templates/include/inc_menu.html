@@ -8,14 +8,18 @@
     </li>
     {% endfor %}
 
-
-
     {% if user.is_authenticated %}
-    <li>
-        <a href="{% url 'auth:edit' %}">
+        <li>
+          <a href="{% url 'auth:edit' %}">
             {{ user.first_name|default:'Пользователь' }}
-        </a>
-    </li>
+          </a>
+        </li>
+    {% endif %}
+
+    {% if user.is_superuser %}
+        <li>
+          <a href="{% url 'admin:users' %}">админка</a>
+        </li>
     {% endif %}
 
     <li>
